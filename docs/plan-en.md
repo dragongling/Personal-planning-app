@@ -1,7 +1,7 @@
 ## Perfect scenario for shopping
 1. Make shopping list
 2. When you enter the store you have shopping list on your screen
-	2.1 Optionally the list can sync with store data
+    - Optionally the list can sync with store data
 3. When you find something, you tap an item and it counts as bought
 
 ## Examples of good habits:
