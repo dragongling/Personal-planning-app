@@ -2,7 +2,10 @@
 1. Make shopping list
 2. When you enter the store you have shopping list on your screen
     - Optionally the list can sync with store data
-3. When you find something, you tap an item and it counts as bought
+    - Buttons
+      - Mark bought
+      - Take picture (for price and/or object image)
+      - Mark not available in this store
 
 ## Examples of good habits:
 - Sleep
@@ -19,7 +22,14 @@
 
 
 
-## Dialogue system examples for various habits
+## Dialogue system
+Dialogue system is an interface where you talk with app like with a human. App worries about you, asks questions, cheers and etc.
+
+### Some terms and features
+- **IDK** - you can always answer that you don't know something app asks you. It's okay, but usually the app expect you things that you'd better know
+- **Control** - one of app goals is to make personal accounting and management easier. So it always tries to ask whether your plans are executed/corrected/declined and etc.
+
+### Examples for various habits
   - Sleep
   	- Wake Up!
   	  - In the morning
@@ -37,3 +47,10 @@
   	  - Answers: No
   	- Did you go to sleep?
   	  - Bedtime, control
+  - General
+    - We didn't talk lately. How are you?
+      - When didn't plan too long
+
+### Avatar
+- Load images for more pleasant interaction
+  - Various emotion images is better
