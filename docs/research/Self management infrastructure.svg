@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.62851482"
-     inkscape:cx="2324.695"
-     inkscape:cy="1809.6051"
+     inkscape:zoom="0.31425742"
+     inkscape:cx="1746.8599"
+     inkscape:cy="2108.9819"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -51,7 +51,20 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Background"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#f4f4f4;stroke-width:1"
+       id="rect921"
+       width="603.67047"
+       height="396.49359"
+       x="302.43057"
+       y="288.14249" />
+  </g>
+  <g
+     inkscape:label="Diagram"
      inkscape:groupmode="layer"
      id="layer1">
     <g
@@ -123,12 +136,6 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact Condensed';fill:#ffffff;fill-opacity:1;stroke:#707070;stroke-opacity:1"
          id="path877" />
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Impact;-inkscape-font-specification:Impact;letter-spacing:0.928688px;stroke-width:0.264583"
-       id="text859"
-       x="303.61581"
-       y="239.15359">IMPACT 30 PT</text>
     <g
        aria-label="MONITORING"
        id="text880"
@@ -242,7 +249,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000080;stroke-width:0.264583"
        x="398.85751"
        y="554.58392"
        id="text986"><tspan
@@ -250,17 +257,17 @@
          id="tspan984"
          x="398.85751"
          y="554.58392"
-         style="stroke-width:0.264583">Task lists</tspan></text>
+         style="fill:#000080;stroke-width:0.264583">Task lists</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000080;stroke-width:0.264583"
        x="390.02814"
        y="501.64294"
        id="text990"><tspan
          sodipodi:role="line"
          x="390.02814"
          y="501.64294"
-         style="stroke-width:0.264583"
+         style="fill:#000080;stroke-width:0.264583"
          id="tspan992">Calendars</tspan></text>
     <g
        id="g934"
@@ -299,7 +306,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="484.00793"
        y="433.40442"
        id="text885"><tspan
@@ -307,10 +314,10 @@
          id="tspan883"
          x="484.00793"
          y="433.40442"
-         style="stroke-width:0.264583">apps</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">apps</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="522.4071"
        y="395.89825"
        id="text889"><tspan
@@ -318,10 +325,10 @@
          id="tspan887"
          x="522.4071"
          y="395.89825"
-         style="stroke-width:0.264583">live actions</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">live actions</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="606.34949"
        y="392.32626"
        id="text893"><tspan
@@ -329,10 +336,10 @@
          id="tspan891"
          x="606.34949"
          y="392.32626"
-         style="stroke-width:0.264583">geolocation</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">geolocation</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="664.21515"
        y="443.22745"
        id="text897"><tspan
@@ -340,10 +347,10 @@
          id="tspan895"
          x="664.21515"
          y="443.22745"
-         style="stroke-width:0.264583">finances</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">finances</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="470.91058"
        y="349.4621"
        id="text901"><tspan
@@ -351,10 +358,10 @@
          id="tspan899"
          x="470.91058"
          y="349.4621"
-         style="stroke-width:0.264583">camera tracking</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">camera tracking</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="748.15753"
        y="416.13968"
        id="text905"><tspan
@@ -362,10 +369,10 @@
          id="tspan903"
          x="748.15753"
          y="416.13968"
-         style="stroke-width:0.264583">bank account APIs</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">bank account APIs</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="758.87354"
        y="449.47845"
        id="text909"><tspan
@@ -373,38 +380,34 @@
          id="tspan907"
          x="758.87354"
          y="449.47845"
-         style="stroke-width:0.264583">checks</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">checks</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 519.7281,469.12455 C 517.94208,461.98054 498.296,440.54844 498.296,440.54844"
-       id="path911" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 559.02026,444.12045 c -3.57201,-21.43207 -7.14404,-44.65016 -7.14404,-44.65016"
        id="path913" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 607.24245,445.90647 28.57611,-50.00821"
        id="path915" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 626.88853,467.33856 664.3947,447.69248"
        id="path917" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 716.0094,436.97644 26.7901,-19.64608"
        id="path919" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 716.0094,440.54844 35.72013,5.35803"
        id="path921" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 712.43737,445.90647 35.72015,25.0041"
        id="path923" />
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#008000;stroke-width:0.264583"
        x="753.82196"
        y="477.00836"
        id="text927"><tspan
@@ -412,10 +415,10 @@
          id="tspan925"
          x="753.82196"
          y="477.00836"
-         style="stroke-width:0.264583">various stores API</tspan></text>
+         style="fill:#008000;stroke-width:0.264583">various stores API</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000080;stroke-width:0.264583"
        x="398.23376"
        y="596.92969"
        id="text938"><tspan
@@ -423,31 +426,27 @@
          id="tspan936"
          x="398.23376"
          y="596.92969"
-         style="stroke-width:0.264583">Statistics data</tspan><tspan
+         style="fill:#000080;stroke-width:0.264583">Statistics data</tspan><tspan
          sodipodi:role="line"
          x="398.23376"
          y="610.15881"
-         style="stroke-width:0.264583"
+         style="fill:#000080;stroke-width:0.264583"
          id="tspan940">based planning</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#000080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 447.4868,498.42366 54.30459,7.57741"
        id="path942" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 451.2755,550.20249 c 11.36607,0 51.7788,-13.89189 51.7788,-13.89189"
-       id="path944" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#000080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 486.63664,588.08942 32.83532,-25.25797"
        id="path946" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 528.65813,354.82011 17.86009,30.3621"
        id="path948" />
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#d45500;stroke-width:0.264583"
        x="700.90826"
        y="532.52197"
        id="text952"><tspan
@@ -455,19 +454,19 @@
          id="tspan950"
          x="700.90826"
          y="532.52197"
-         style="stroke-width:0.264583">dialogue based</tspan><tspan
+         style="fill:#d45500;stroke-width:0.264583">dialogue based</tspan><tspan
          sodipodi:role="line"
          x="700.90826"
          y="545.7511"
-         style="stroke-width:0.264583"
+         style="fill:#d45500;stroke-width:0.264583"
          id="tspan954">replanning &amp; self-control</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#d45500;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 649.12948,517.36714 c 7.57738,2.52579 47.9901,16.41766 47.9901,16.41766"
        id="path956" />
     <text
        xml:space="preserve"
-       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#d45500;stroke-width:0.264583"
        x="647.86658"
        y="598.19263"
        id="text960"><tspan
@@ -475,30 +474,75 @@
          id="tspan958"
          x="647.86658"
          y="598.19263"
-         style="stroke-width:0.264583">focus helping</tspan></text>
+         style="fill:#d45500;stroke-width:0.264583">focus helping</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#d45500;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 627.66021,562.83145 16.41766,25.25797"
        id="path962" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000080;stroke-width:0.264583"
+       x="307.78857"
+       y="535.80219"
+       id="text928"><tspan
+         sodipodi:role="line"
+         id="tspan926"
+         x="307.78857"
+         y="535.80219"
+         style="fill:#000080;stroke-width:0.264583">Habits</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000080;stroke-width:0.264583"
+       x="291.41684"
+       y="575.9873"
+       id="text929"><tspan
+         sodipodi:role="line"
+         id="tspan927"
+         x="291.41684"
+         y="575.9873"
+         style="fill:#000080;stroke-width:0.264583">Shopping lists</tspan></text>
+    <path
+       style="fill:#000080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 398.86522,556.096 -30.30956,14.52333"
+       id="path931" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 450.07381,550.0902 57.15222,-16.07405"
+       id="path933" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 343.80638,533.12313 50.9012,16.96707"
+       id="path935" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 502.84379,437.59408 26.52086,22.10072"
+       id="path937" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Guides"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <circle
        style="fill:#f951ff;fill-opacity:0.635097;stroke:none;stroke-width:2.32929;stroke-opacity:1"
        id="circle851"
-       cx="158.31963"
-       cy="37.283142"
+       cx="388.43115"
+       cy="411.98691"
        r="57.152233"
-       transform="matrix(0.48826989,0.87269267,0.87269267,-0.48826989,0,0)" />
+       transform="matrix(0.48826989,0.87269268,0.87269268,-0.48826989,0,0)" />
     <circle
        style="fill:#51c6ff;fill-opacity:0.635097;stroke:none;stroke-width:1.96534;stroke-opacity:1"
        id="path888"
-       cx="-159.85432"
-       cy="30.0289"
+       cx="-406.80408"
+       cy="393.85587"
        r="48.222198"
        transform="rotate(-121.83912)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Impact;-inkscape-font-specification:Impact;letter-spacing:0.928688px;stroke-width:0.264583"
+       id="text859"
+       x="342.90796"
+       y="71.268913">IMPACT 30 PT</text>
   </g>
 </svg>
