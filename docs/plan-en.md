@@ -20,7 +20,17 @@
 - Working
   - Music to stay focused
 
-
+## Task structure
+- Title
+- Time
+- Repeatable
+- Location
+- Habit flag
+- Maintenance task flag
+- Category
+- Parent task
+- Subtasks
+- Dependencies
 
 ## Dialogue system
 Dialogue system is an interface where you talk with app like with a human. App worries about you, asks questions, cheers and etc.
@@ -31,25 +41,31 @@ Dialogue system is an interface where you talk with app like with a human. App w
 
 ### Examples for various habits
   - Sleep
-  	- Wake Up!
-  	  - In the morning
-  	- When did you wake up?
-  	  - Morning, control
-  	  - Answers: Time / IDK
-  	  - Share button
-  	  - Replans history
-  	- When did you go to sleep?
-  	  - Morning, control
-  	  - Answers: Time / IDK
-  	  - Replans history
-  	- Get to sleep! Now!
-  	  - Bedtime
-  	  - Answers: No
-  	- Did you go to sleep?
-  	  - Bedtime, control
+    - From app:
+    	- Wake Up!
+    	  - In the morning
+    	- When did you wake up?
+    	  - Morning, control
+    	  - Answers: Time / IDK
+    	  - Share button
+    	  - Replans history
+    	- When did you go to sleep?
+    	  - Morning, control
+    	  - Answers: Time / IDK
+    	  - Replans history
+    	- Get to sleep! Now!
+    	  - Bedtime
+    	  - Answers: No / I can't
+    	- Did you go to sleep?
+    	  - Bedtime, control
+        - Answers: No / I can't
+    - To app:
+      - I can't fall asleep
+        - Response: advices to fall asleep
   - General
-    - We didn't talk lately. How are you?
-      - When didn't plan too long
+    - From app:
+      - We didn't talk lately. How are you?
+        - When didn't plan too long
 
 ### Avatar
 - Load images for more pleasant interaction
