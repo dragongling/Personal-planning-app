@@ -1,3 +1,5 @@
+# Various ideas and features
+
 ## Perfect scenario for shopping
 1. Make shopping list
 2. When you enter the store you have shopping list on your screen
