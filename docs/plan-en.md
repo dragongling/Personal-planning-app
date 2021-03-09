@@ -1,5 +1,39 @@
 # Various ideas and features
 
+## Goals:
+- Planning, planning automatization & task control
+- Growing good habits
+
+## Tasks for solving:
+- Shopping list
+- Commonplace tasks
+  - Accounting
+    - Add
+    - Edit
+    - Delete
+  - Planning
+  - Priority
+  - Reminders
+  - Execution timers
+    - Smart timers
+  - Task decomposition
+  - Fast and easy replanning
+  - Personal planning protection
+    - from third party
+    - crypto key
+  - Mobile app
+  - Dialogue system
+
+## Task timer & splits
+1. Pressing start task button
+2. Timer starts
+3. You can make splits
+4. You can mark splits
+5. Expended time is accounted in foregoing planning
+6. Voice control
+  - Need open source voice assistant
+    - [Mycroft](https://mycroft.ai/)
+
 ## Perfect scenario for shopping
 1. Make shopping list
 2. When you enter the store you have shopping list on your screen
@@ -72,3 +106,32 @@ Dialogue system is an interface where you talk with app like with a human. App w
 ### Avatar
 - Load images for more pleasant interaction
   - Various emotion images is better
+
+
+## Why alternatives are not enough:
+- Todoist
+  - **No template for task**
+  - No stopwatch for tasks
+- Google Calendar
+  - No task duration
+  - Tasks, events, reminders are inconsistent
+  - No custom task color
+
+## Screens
+1. Hello. I'm %AppName%, the open source personal time management tool.
+2. What's your real name? Don't worry, it won't leave your device.
+3. What time you usually get to sleep?
+4. What time you usually wake up?
+5. 
+
+## Intro
+Need to determine
+1. Language
+2. Country
+3. Name
+4. Age
+5. Patterns:
+  1. Sleep
+  2. Eating
+  3. Work / Learn / Rest
+  4. Maintenance tasks
