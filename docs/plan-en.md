@@ -58,7 +58,9 @@
 
 ## Task structure
 - Title
-- Time
+- Time of adding
+- Time of start
+- Time of end
 - Repeatable
 - Location
 - Habit flag
@@ -67,6 +69,7 @@
 - Parent task
 - Subtasks
 - Dependencies
+- Time for task per day
 
 ## Dialogue system
 Dialogue system is an interface where you talk with app like with a human. App worries about you, asks questions, cheers and etc.
