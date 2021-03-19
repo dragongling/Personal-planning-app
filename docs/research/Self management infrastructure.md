@@ -21,4 +21,4 @@ Self management
   - Dialogue based replanning & self control
   - Focus helping
 
-There is a reasoning part that precedes planning, but I prefer not to automatize it right now.
+There is a reasoning part that precedes planning, but I prefer to leave this task to humans right now.
