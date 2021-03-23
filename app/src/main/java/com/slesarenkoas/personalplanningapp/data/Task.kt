@@ -1,16 +1,24 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.data
 
-import java.sql.Timestamp
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.slesarenkoas.personalplanningapp.Utils
+import java.util.*
 
+@Entity
 data class Task(
-//        val id: Int,
-        val title: String//,
+	@PrimaryKey(autoGenerate = true)
+	val id: Int,
+
+	val title: String,
 
 //        val parents: List<Task>?,
 //        val children: List<Task>?,
 //        val requires: List<Task>?,
-//
-//        val addTime: Timestamp, // TODO: change type
+
+	val addTime: Date,
+	var markCompletedTime: Date?
+
 //        val startTime: Timestamp,
 //        val endTime: Timestamp,
 //        val repeatPattern: String?, // TODO: format for pattern storage

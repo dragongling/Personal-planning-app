@@ -1,80 +1,53 @@
 package com.slesarenkoas.personalplanningapp
 
-import android.graphics.Paint
-import android.os.*
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.LayoutRes
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.task_item_row.view.*
 
 
 class MainActivity : AppCompatActivity() {
+	private val addTaskRequestCode: Int = 1
 
-    private lateinit var linearLayoutManager : LinearLayoutManager
+	private val taskViewModel: TaskViewModel by viewModels {
+		TaskViewModelFactory((application as PersonalPlanningApplication).repository)
+	}
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
 
-        linearLayoutManager = LinearLayoutManager(this)
-        tasksRecyclerView.layoutManager = linearLayoutManager
-        val tasks = ArrayList<Task>()
-        for (i in 1..21) {
-            tasks += Task("Task $i")
-        }
-        tasksRecyclerView.adapter = TaskRecyclerAdapter(tasks)
-    }
+		tasksRecyclerView.layoutManager = LinearLayoutManager(this)
+		val adapter = TaskAdapter(taskViewModel)
+		tasksRecyclerView.adapter = adapter
 
-    class TaskRecyclerAdapter(private val tasks: ArrayList<Task>) :
-            RecyclerView.Adapter<TaskRecyclerAdapter.TaskViewHolder>(){
+		taskViewModel.currentTasks.observe(this) { currentTasks ->
+			currentTasks.let { adapter.submitList(it) }
+		}
 
-        private val handler = Handler(Looper.getMainLooper())
+		addTaskButton.setOnClickListener {
+			val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
+			startActivityForResult(intent, addTaskRequestCode)
+		}
+	}
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-            val inflatedView = parent.inflate(R.layout.task_item_row, false)
-            return TaskViewHolder(inflatedView)
-        }
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+		super.onActivityResult(requestCode, resultCode, data)
 
-        override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-            val itemTask = tasks[position]
-            holder.bindTask(itemTask, position)
-        }
-
-        override fun getItemCount() = tasks.size
-
-        private fun crossOutItem(itemView: View, position: Int) {
-            itemView.taskTitle.paintFlags = itemView.taskTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            val duration: Long = 1000
-            handler.postDelayed({
-                tasks.removeAt(position)
-                notifyDataSetChanged()
-            }, duration)
-        }
-
-        private fun cancelCrossOutItem(itemView: View){
-            itemView.taskTitle.paintFlags = itemView.taskTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            handler.removeCallbacksAndMessages(null)
-        }
-
-        inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            fun bindTask(task: Task, position: Int){
-                itemView.taskTitle.text = task.title
-                itemView.taskCheckbox.setOnCheckedChangeListener { _, isChecked ->
-                    if (isChecked)
-                        crossOutItem(itemView, position)
-                    else
-                        cancelCrossOutItem(itemView)
-                }
-            }
-        }
-    }
-}
-
-fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
-    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
+		if (requestCode == addTaskRequestCode && resultCode == Activity.RESULT_OK) {
+			data?.getStringExtra(AddTaskActivity.EXTRA_ADD_TASK)?.let { taskTitle ->
+				taskViewModel.addTask(taskTitle)
+			}
+		} else {
+			Toast.makeText(
+				applicationContext,
+				R.string.empty_task_title_not_saved,
+				Toast.LENGTH_LONG
+			).show()
+		}
+	}
 }
