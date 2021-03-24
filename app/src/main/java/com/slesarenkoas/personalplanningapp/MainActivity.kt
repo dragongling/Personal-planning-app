@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 		} else {
 			Toast.makeText(
 				applicationContext,
-				R.string.empty_task_title_not_saved,
+				R.string.canceled,
 				Toast.LENGTH_LONG
 			).show()
 		}

@@ -2,9 +2,10 @@ package com.slesarenkoas.personalplanningapp
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_add_task.*
 
 class AddTaskActivity : AppCompatActivity() {
@@ -26,6 +27,15 @@ class AddTaskActivity : AppCompatActivity() {
 				setResult(Activity.RESULT_OK, replyIntent)
 			}
 			finish()
+		}
+
+		taskTitle.addTextChangedListener {
+			addTaskButton.text = getString(
+				if (TextUtils.isEmpty(taskTitle.text))
+					R.string.cancel
+				else
+					R.string.add_task
+			)
 		}
 	}
 }
