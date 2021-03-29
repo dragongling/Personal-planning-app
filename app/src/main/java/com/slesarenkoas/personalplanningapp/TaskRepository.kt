@@ -10,12 +10,6 @@ class TaskRepository(private val taskDAO: TaskDAO) {
 
 	@Suppress("RedundantSuspendModifier")
 	@WorkerThread
-	suspend fun insert(task: Task){
-		taskDAO.insertAll(task)
-	}
-
-	@Suppress("RedundantSuspendModifier")
-	@WorkerThread
 	suspend fun markTaskComplete(taskId: Int) {
 		taskDAO.markComplete(taskId, Utils.currentTime)
 	}
