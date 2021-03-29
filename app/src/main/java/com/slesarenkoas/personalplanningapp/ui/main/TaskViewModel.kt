@@ -1,7 +1,8 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.ui.main
 
 import androidx.lifecycle.*
-import com.slesarenkoas.personalplanningapp.data.Task
+import com.slesarenkoas.personalplanningapp.db.TaskRepository
+import com.slesarenkoas.personalplanningapp.model.Task
 import kotlinx.coroutines.launch
 
 class TaskViewModel(private val repository: TaskRepository) : ViewModel() {

@@ -1,4 +1,4 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.ui.main
 
 import android.graphics.Paint
 import android.os.Handler
@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.slesarenkoas.personalplanningapp.data.Task
+import com.slesarenkoas.personalplanningapp.R
+import com.slesarenkoas.personalplanningapp.model.Task
 import kotlinx.android.synthetic.main.task_item_row.view.*
 
 class TaskAdapter(

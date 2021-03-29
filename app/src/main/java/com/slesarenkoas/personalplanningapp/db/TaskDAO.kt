@@ -1,6 +1,10 @@
-package com.slesarenkoas.personalplanningapp.data
+package com.slesarenkoas.personalplanningapp.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
+import com.slesarenkoas.personalplanningapp.model.Task
 import kotlinx.coroutines.flow.Flow
 import java.util.*
 

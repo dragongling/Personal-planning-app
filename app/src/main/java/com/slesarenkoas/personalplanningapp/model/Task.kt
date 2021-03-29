@@ -1,8 +1,7 @@
-package com.slesarenkoas.personalplanningapp.data
+package com.slesarenkoas.personalplanningapp.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.slesarenkoas.personalplanningapp.Utils
 import java.util.*
 
 @Entity

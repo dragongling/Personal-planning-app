@@ -1,4 +1,4 @@
-package com.slesarenkoas.personalplanningapp.data
+package com.slesarenkoas.personalplanningapp.db
 
 import androidx.room.TypeConverter
 import java.util.*

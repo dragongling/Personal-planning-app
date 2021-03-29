@@ -1,4 +1,4 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.ui.addtask
 
 import android.app.Activity
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.slesarenkoas.personalplanningapp.R
 import kotlinx.android.synthetic.main.activity_add_task.*
 
 class AddTaskActivity : AppCompatActivity() {

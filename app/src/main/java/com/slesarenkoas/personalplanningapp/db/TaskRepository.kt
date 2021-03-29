@@ -1,8 +1,8 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.db
 
 import androidx.annotation.WorkerThread
-import com.slesarenkoas.personalplanningapp.data.Task
-import com.slesarenkoas.personalplanningapp.data.TaskDAO
+import com.slesarenkoas.personalplanningapp.Utils
+import com.slesarenkoas.personalplanningapp.model.Task
 import kotlinx.coroutines.flow.Flow
 
 class TaskRepository(private val taskDAO: TaskDAO) {

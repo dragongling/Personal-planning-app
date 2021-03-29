@@ -1,4 +1,4 @@
-package com.slesarenkoas.personalplanningapp
+package com.slesarenkoas.personalplanningapp.ui.main
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
+import com.slesarenkoas.personalplanningapp.R
+import com.slesarenkoas.personalplanningapp.ui.addtask.AddTaskActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
