@@ -4,14 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
 import com.slesarenkoas.personalplanningapp.R
+import com.slesarenkoas.personalplanningapp.ui.main.TaskViewModel
+import com.slesarenkoas.personalplanningapp.ui.main.TaskViewModelFactory
 import kotlinx.android.synthetic.main.activity_add_task.*
 
 class AddTaskActivity : AppCompatActivity() {
-	companion object {
-		const val EXTRA_ADD_TASK: String = "com.slesarenkoas.personalplanningapp.ADD_TASK"
+	private val taskViewModel: TaskViewModel by viewModels {
+		TaskViewModelFactory((application as PersonalPlanningApplication).repository)
 	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +28,7 @@ class AddTaskActivity : AppCompatActivity() {
 				setResult(Activity.RESULT_CANCELED, replyIntent)
 			} else {
 				val taskTitle = taskTitle.text.toString()
-				replyIntent.putExtra(EXTRA_ADD_TASK, taskTitle)
+				taskViewModel.addTask(taskTitle, this)
 				setResult(Activity.RESULT_OK, replyIntent)
 			}
 			finish()

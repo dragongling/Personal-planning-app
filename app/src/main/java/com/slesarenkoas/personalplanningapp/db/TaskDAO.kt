@@ -22,6 +22,9 @@ interface TaskDAO {
 	@Query("SELECT * FROM task WHERE markCompletedTime is null")
 	fun getCurrentTasks(): Flow<List<Task>>
 
+	@Query("SELECT * FROM task WHERE markCompletedTime is null")
+	fun getCurrentTasksForWidget(): List<Task>
+
 	@Query("update task set markCompletedTime = :markCompleteTime where id = :taskId")
 	suspend fun markComplete(taskId: Int, markCompleteTime: Date)
 

@@ -1,5 +1,6 @@
 package com.slesarenkoas.personalplanningapp.ui.main
 
+import android.content.Context
 import android.graphics.Paint
 import android.os.Handler
 import android.os.Looper
@@ -10,11 +11,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.slesarenkoas.personalplanningapp.R
+import com.slesarenkoas.personalplanningapp.db.TaskRepository
 import com.slesarenkoas.personalplanningapp.model.Task
+import com.slesarenkoas.personalplanningapp.ui.widget.TasksWidgetProvider
 import kotlinx.android.synthetic.main.task_item_row.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class TaskAdapter(
-	private val taskViewModel: TaskViewModel
+	private val scope: CoroutineScope,
+	private val repository: TaskRepository,
+	private val context: Context
 ) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TaskComparator()) {
 
 	override fun onCreateViewHolder(
@@ -22,7 +29,10 @@ class TaskAdapter(
 		viewType: Int
 	): TaskViewHolder {
 		return TaskViewHolder.create(parent) {
-			taskViewModel.markTaskComplete(it)
+			scope.launch {
+				repository.markTaskComplete(it)
+				TasksWidgetProvider.sendRefreshBroadcast(context)
+			}
 			notifyDataSetChanged()
 		}
 	}

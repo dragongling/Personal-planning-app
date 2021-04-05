@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
 import com.slesarenkoas.personalplanningapp.R
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_main)
 
 		tasksRecyclerView.layoutManager = LinearLayoutManager(this)
-		val adapter = TaskAdapter(taskViewModel)
+		val adapter = TaskAdapter(taskViewModel.viewModelScope, taskViewModel.repository, this)
 		tasksRecyclerView.adapter = adapter
 
 		taskViewModel.currentTasks.observe(this) { currentTasks ->
@@ -41,11 +42,7 @@ class MainActivity : AppCompatActivity() {
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 
-		if (requestCode == addTaskRequestCode && resultCode == Activity.RESULT_OK) {
-			data?.getStringExtra(AddTaskActivity.EXTRA_ADD_TASK)?.let { taskTitle ->
-				taskViewModel.addTask(taskTitle)
-			}
-		} else {
+		if (requestCode == addTaskRequestCode && resultCode == Activity.RESULT_CANCELED) {
 			Toast.makeText(
 				applicationContext,
 				R.string.canceled,
