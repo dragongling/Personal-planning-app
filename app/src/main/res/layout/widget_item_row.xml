@@ -6,11 +6,18 @@
 	android:gravity="center_vertical"
 	android:padding="8dp">
 
-	<Button
+	<ImageButton
+		android:id="@+id/taskCheckbox"
 		android:layout_width="18dp"
 		android:layout_height="18dp"
 		android:layout_margin="3dp"
-		android:background="@drawable/ic_checkbox_unchecked" />
+		android:background="@drawable/ic_checkbox_unchecked"
+		android:contentDescription="@string/mark_completed" />
+
+	<!--	<Button-->
+	<!--		android:id="@+id/markCompleteButton"-->
+	<!--		android:layout_width="wrap_content"-->
+	<!--		android:layout_height="wrap_content" />-->
 
 	<TextView
 		android:id="@+id/taskTitle"

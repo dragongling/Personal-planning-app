@@ -7,24 +7,155 @@
 	android:padding="16dp"
 	tools:context=".ui.addtask.AddTaskActivity">
 
-	<EditText
+	<AutoCompleteTextView
 		android:id="@+id/taskTitle"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
+		android:hint="@string/task_title_hint"
 		android:importantForAutofill="no"
 		android:inputType="text"
-		android:hint="@string/task_title_hint"/>
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<Button
+		android:id="@+id/pickColorButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:backgroundTint="@color/black"
+		android:text="@string/color"
+		app:layout_constraintBottom_toTopOf="@id/categoriesTextView"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/taskTitle" />
+
+	<ToggleButton
+		android:id="@+id/categoryToggle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="3dp"
+		android:text="@string/category_checkbox"
+		android:textOff="@string/category_checkbox"
+
+		android:textOn="@string/category_checkbox"
+		app:layout_constraintBottom_toTopOf="@+id/categoriesTextView"
+		app:layout_constraintStart_toEndOf="@+id/pickColorButton"
+		app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+	<ImageButton
+		android:id="@+id/categoryHelpButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/ic_baseline_help_24"
+		android:contentDescription="@string/category_help"
+
+		android:visibility="gone"
+		app:layout_constraintBottom_toTopOf="@+id/categoriesTextView"
+		app:layout_constraintStart_toEndOf="@+id/categoryToggle"
+		app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+	<ToggleButton
+		android:id="@+id/repeatableToggle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="3dp"
+		android:text="@string/repeatable_checkbox"
+		android:textOff="@string/repeatable_checkbox"
+
+		android:textOn="@string/repeatable_checkbox"
+		app:layout_constraintBottom_toTopOf="@+id/categoriesTextView"
+		app:layout_constraintStart_toEndOf="@+id/categoryHelpButton"
+		app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+	<TextView
+		android:id="@+id/categoriesTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/categories"
+
+		app:layout_constraintBottom_toTopOf="@+id/categoriesDivider"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/pickColorButton" />
+
+	<Button
+		android:id="@+id/addCategoryButton"
+		android:layout_width="wrap_content"
+		android:layout_height="35dp"
+		android:layout_margin="0dp"
+		android:minWidth="0dp"
+		android:text="@string/button_add"
+		android:textSize="12sp"
+		app:layout_constraintBottom_toTopOf="@+id/categoriesDivider"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/pickColorButton" />
+
+	<View
+		android:id="@+id/categoriesDivider"
+		style="@style/Divider"
+
+		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/categoriesTextView" />
+
+	<com.google.android.material.chip.ChipGroup
+		android:id="@+id/categoriesContainer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="0dp"
+		android:padding="10dp"
+
+		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer2"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/categoriesDivider" />
+
+	<com.google.android.flexbox.FlexboxLayout
+		android:id="@+id/categoriesContainer2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		app:flexWrap="wrap"
+
+		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer3"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/categoriesContainer">
+
+		<com.google.android.material.chip.Chip
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="test"
+			app:closeIconEnabled="true" />
+
+		<com.google.android.material.chip.Chip
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="test"
+			app:closeIconEnabled="true" />
+
+		<com.google.android.material.chip.Chip
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="test"
+			app:closeIconEnabled="true" />
+	</com.google.android.flexbox.FlexboxLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/categoriesContainer3"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+
+		app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/categoriesContainer2" />
 
 	<Button
 		android:id="@+id/addTaskButton"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:layout_constraintTop_toBottomOf="@id/taskTitle"
+		android:text="@string/cancel"
+		app:layout_constraintTop_toBottomOf="@id/categoriesContainer3"
+
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		android:text="@string/cancel" />
+		tools:text="Add task/Save/Cancel" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

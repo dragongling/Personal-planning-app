@@ -2,6 +2,8 @@ package com.slesarenkoas.personalplanningapp.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
+import java.io.Serializable
 import java.util.*
 
 @Entity
@@ -11,12 +13,18 @@ data class Task(
 
 	val title: String,
 
-//        val parents: List<Task>?,
+	@Relation(
+		parentColumn = "task1Id",
+		entityColumn = "task2Id",
+		associateBy = Junction(TaskToTask::class)
+	)
+	val categories: List<Task>?,
 //        val children: List<Task>?,
 //        val requires: List<Task>?,
 
 	val addTime: Date,
-	var markCompletedTime: Date?
+	var markCompletedTime: Date?,
+	val color: Int,
 
 //        val startTime: Timestamp,
 //        val endTime: Timestamp,
@@ -26,9 +34,21 @@ data class Task(
 //        val location: String?, // TODO: Location format
 //        val isHabit: Boolean,
 //        val isMaintenance: Boolean,
-//        val isCategory: Boolean
+	val isCategory: Boolean
+) : Serializable
+
+@Entity(primaryKeys = ["task1Id", "task2Id", "taskRelationId"])
+data class TaskToTask(
+	val task1Id: Int,
+	val task2Id: Int,
+	val taskRelationId: Int
 )
 
+@Entity
+data class TaskRelation(
+	@PrimaryKey val id: Int,
+	val name: String
+)
 //val sleep: Task = Task(
 //        0,
 //        "Sleep",

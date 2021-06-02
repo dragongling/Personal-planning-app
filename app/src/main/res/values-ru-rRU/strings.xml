@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="test_notification_button">Тестовое уведомление</string>
+	<string name="next">Следующее</string>
+	<string name="previous">Предыдущее</string>
+	<string name="task_title_hint">Введите задачу</string>
+	<string name="add_task">Добавить задачу</string>
+	<string name="cancel">Отмена</string>
+	<string name="canceled">Отменено</string>
+	<string name="current_tasks">Текущие задачи</string>
+	<string name="add_task_button_desc">Кнопка добавления задачи</string>
+	<string name="color">Цвет</string>
+	<string name="choose_color">Выберите цвет</string>
+	<string name="category_checkbox">Категория</string>
+	<string name="repeatable_checkbox">Повторяемая</string>
+	<string name="category_help">Что такое категория?</string>
+	<string name="categories">Категории</string>
+	<string name="subtasks">Подзадачи</string>
+	<string name="requires">Требует</string>
+	<string name="button_add">Добавить</string>
+	<string name="mark_completed">Отметить выполненной</string>
+	<string name="added">Добавлено</string>
+	<string name="save_task">Сохранить</string>
+	<string name="edit_task">Редактировать</string>
+	<string name="add_subtask">Добавить подзадачу</string>
+</resources>

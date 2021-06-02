@@ -10,7 +10,7 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.PersonalPlanningApp">
-
+		<activity android:name=".ui.plan.PlanActivity" />
 		<activity android:name=".ui.addtask.AddTaskActivity" />
 		<activity android:name=".ui.main.MainActivity">
 			<intent-filter>
@@ -23,6 +23,7 @@
 		<receiver android:name=".ui.widget.TasksWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+				<action android:name="com.slesarenkoas.personalplanningapp.action.MARK_COMPLETE_ACTION" />
 			</intent-filter>
 
 			<meta-data

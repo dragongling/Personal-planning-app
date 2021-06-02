@@ -10,12 +10,14 @@ import kotlinx.coroutines.launch
 class TaskViewModel(val repository: TaskRepository) : ViewModel() {
 	val currentTasks: LiveData<List<Task>> = repository.currentTasks.asLiveData()
 
-	fun markTaskComplete(taskId: Int) = viewModelScope.launch {
-		repository.markTaskComplete(taskId)
-	}
+	fun addTask(taskTitle: String, color: Int, isCategory: Boolean, context: Context) =
+		viewModelScope.launch {
+			repository.addTask(taskTitle, color, isCategory)
+			TasksWidgetProvider.sendRefreshBroadcast(context)
+		}
 
-	fun addTask(taskTitle: String, context: Context) = viewModelScope.launch {
-		repository.addTask(taskTitle)
+	fun editTask(id: Int, taskTitle: String, color: Int, context: Context) = viewModelScope.launch {
+		repository.editTask(id, taskTitle, color)
 		TasksWidgetProvider.sendRefreshBroadcast(context)
 	}
 }

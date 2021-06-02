@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">Personal Planning App</string>
+	<string name="app_name" translatable="false">Open Plan</string>
 	<string name="test_notification_button">Test Notification</string>
 	<string name="next">Next</string>
 	<string name="previous">Previous</string>
@@ -10,4 +10,18 @@
 	<string name="cancel">Cancel</string>
 	<string name="canceled">Canceled</string>
 	<string name="current_tasks">Current tasks</string>
+	<string name="color">Color</string>
+	<string name="choose_color">Choose color</string>
+	<string name="category_checkbox">Category</string>
+	<string name="repeatable_checkbox">Repeatable</string>
+	<string name="category_help">What is category?</string>
+	<string name="categories">Categories</string>
+	<string name="subtasks">Subtasks</string>
+	<string name="requires">Requires</string>
+	<string name="button_add">Add</string>
+	<string name="mark_completed">Mark completed</string>
+	<string name="added">Added</string>
+	<string name="save_task">Save task</string>
+	<string name="edit_task">Edit task</string>
+	<string name="add_subtask">Add subtask</string>
 </resources>

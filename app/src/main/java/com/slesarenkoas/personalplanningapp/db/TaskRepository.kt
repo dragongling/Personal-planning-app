@@ -16,7 +16,13 @@ class TaskRepository(private val taskDAO: TaskDAO) {
 
 	@Suppress("RedundantSuspendModifier")
 	@WorkerThread
-	suspend fun addTask(taskTitle: String) {
-		taskDAO.addTask(taskTitle, Utils.currentTime)
+	suspend fun addTask(taskTitle: String, color: Int, isCategory: Boolean) {
+		taskDAO.addTask(taskTitle, color, Utils.currentTime, if (isCategory) 1 else 0)
+	}
+
+	@Suppress("RedundantSuspendModifier")
+	@WorkerThread
+	suspend fun editTask(id: Int, title: String, color: Int) {
+		taskDAO.editTask(id, title, color)
 	}
 }

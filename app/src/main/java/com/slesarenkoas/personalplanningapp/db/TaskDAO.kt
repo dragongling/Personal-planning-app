@@ -19,7 +19,7 @@ interface TaskDAO {
 	@Query("SELECT * FROM task")
 	fun getAll(): List<Task>
 
-	@Query("SELECT * FROM task WHERE markCompletedTime is null")
+	@Query("SELECT * FROM task WHERE markCompletedTime is null and isCategory == 0")
 	fun getCurrentTasks(): Flow<List<Task>>
 
 	@Query("SELECT * FROM task WHERE markCompletedTime is null")
@@ -28,6 +28,12 @@ interface TaskDAO {
 	@Query("update task set markCompletedTime = :markCompleteTime where id = :taskId")
 	suspend fun markComplete(taskId: Int, markCompleteTime: Date)
 
-	@Query("insert into task (title, addTime) values (:taskTitle, :addTime)")
-	suspend fun addTask(taskTitle: String, addTime: Date)
+	@Query("insert into task (title, color, addTime, isCategory) values (:taskTitle, :color, :addTime, :isCategory)")
+	suspend fun addTask(taskTitle: String, color: Int, addTime: Date, isCategory: Int)
+
+//	@Query("insert into taskToTask (task1Id, task2Id, taskRelationId) values (:taskId, :categoryId, 1)")
+//	suspend fun addCategory(taskId: Int, categoryId: Int)
+
+	@Query("update task set title = :taskTitle, color = :color where id = :taskId")
+	suspend fun editTask(taskId: Int, taskTitle: String, color: Int)
 }

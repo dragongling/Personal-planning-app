@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.viewModelScope
@@ -15,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-	private val addTaskRequestCode: Int = 1
+	private lateinit var addOrEditTaskLauncher: ActivityResultLauncher<Intent>
 
 	private val taskViewModel: TaskViewModel by viewModels {
 		TaskViewModelFactory((application as PersonalPlanningApplication).repository)
@@ -25,8 +27,31 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
+		setTitle(R.string.current_tasks)
+
+		addOrEditTaskLauncher = registerForActivityResult(
+			ActivityResultContracts.StartActivityForResult()
+		) { result ->
+			Toast.makeText(
+				applicationContext,
+				if (result.resultCode == Activity.RESULT_CANCELED)
+					R.string.canceled
+				else
+					R.string.added,
+				Toast.LENGTH_LONG
+			).show()
+		}
+
 		tasksRecyclerView.layoutManager = LinearLayoutManager(this)
-		val adapter = TaskAdapter(taskViewModel.viewModelScope, taskViewModel.repository, this)
+		val adapter = TaskAdapter(
+			taskViewModel.viewModelScope,
+			taskViewModel.repository,
+			this
+		) { task ->
+			val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
+			intent.putExtra(AddTaskActivity.EXTRA_TASK_TO_EDIT, task)
+			addOrEditTaskLauncher.launch(intent)
+		}
 		tasksRecyclerView.adapter = adapter
 
 		taskViewModel.currentTasks.observe(this) { currentTasks ->
@@ -35,19 +60,7 @@ class MainActivity : AppCompatActivity() {
 
 		addTaskButton.setOnClickListener {
 			val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
-			startActivityForResult(intent, addTaskRequestCode)
-		}
-	}
-
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-		super.onActivityResult(requestCode, resultCode, data)
-
-		if (requestCode == addTaskRequestCode && resultCode == Activity.RESULT_CANCELED) {
-			Toast.makeText(
-				applicationContext,
-				R.string.canceled,
-				Toast.LENGTH_LONG
-			).show()
+			addOrEditTaskLauncher.launch(intent)
 		}
 	}
 }
