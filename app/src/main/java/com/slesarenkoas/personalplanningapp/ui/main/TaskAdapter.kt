@@ -67,6 +67,12 @@ class TaskAdapter(
 		fun bind(task: Task) {
 			itemView.taskTitle.text = task.title
 			itemView.taskCard.background.setTint(task.color)
+			itemView.taskCard.setOnClickListener {
+				if (itemView.editTaskButton.visibility == View.GONE)
+					itemView.editTaskButton.visibility = View.VISIBLE
+				else
+					itemView.editTaskButton.visibility = View.GONE
+			}
 
 			val fgColor = Utils.getForegroundColor(task.color)
 			itemView.taskTitle.setTextColor(fgColor)

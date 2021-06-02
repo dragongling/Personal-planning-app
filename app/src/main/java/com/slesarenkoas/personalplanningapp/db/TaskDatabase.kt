@@ -44,8 +44,6 @@ abstract class TaskDatabase : RoomDatabase() {
 		fun getDatabase(
 			context: Context
 		): TaskDatabase {
-			// if the INSTANCE is not null, then return it,
-			// if it is, then create the database
 			return INSTANCE ?: synchronized(this) {
 				val instance = Room.databaseBuilder(
 					context.applicationContext,

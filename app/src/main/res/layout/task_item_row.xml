@@ -34,6 +34,7 @@
 			android:layout_margin="5dp"
 			android:background="@drawable/ic_baseline_edit_24"
 			android:contentDescription="@string/mark_completed"
+			android:visibility="gone"
 
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toStartOf="@id/markCompleteButton"
