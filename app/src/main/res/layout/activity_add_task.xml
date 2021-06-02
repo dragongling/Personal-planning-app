@@ -60,6 +60,7 @@
 		android:layout_marginHorizontal="3dp"
 		android:text="@string/repeatable_checkbox"
 		android:textOff="@string/repeatable_checkbox"
+		android:visibility="gone"
 
 		android:textOn="@string/repeatable_checkbox"
 		app:layout_constraintBottom_toTopOf="@+id/categoriesTextView"
@@ -142,19 +143,51 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 
-		app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
+
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/categoriesContainer2" />
+
+	<TextView
+		android:id="@+id/subtasksTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/subtasks"
+
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/categoriesContainer3" />
+
+	<View
+		android:id="@+id/subtasksDivider"
+		style="@style/Divider"
+
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/subtasksTextView" />
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/subtasks"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/subtasksDivider" />
+
+	<Button
+		android:id="@+id/addSubtaskButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/add_subtask"
+
+		app:layout_constraintTop_toBottomOf="@id/subtasks" />
 
 	<Button
 		android:id="@+id/addTaskButton"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/cancel"
-		app:layout_constraintTop_toBottomOf="@id/categoriesContainer3"
 
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
 		tools:text="Add task/Save/Cancel" />
 
 

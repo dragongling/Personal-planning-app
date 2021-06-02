@@ -25,6 +25,7 @@ import kotlin.random.Random
 
 class AddTaskActivity : AppCompatActivity() {
 	companion object {
+		const val EXTRA_PARENT_TASK_ID = "parentTaskId"
 		const val EXTRA_TASK_TO_EDIT = "taskToEdit"
 	}
 
@@ -35,19 +36,28 @@ class AddTaskActivity : AppCompatActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		taskToEdit = intent.getSerializableExtra(EXTRA_TASK_TO_EDIT) as? Task
+		val parentTaskId = intent.getIntExtra(EXTRA_PARENT_TASK_ID, -1)
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_add_task)
 
 		var color: Int
-		if (taskToEdit != null) {
-			taskTitle.setText(taskToEdit!!.title)
-			categoryToggle.visibility = View.GONE
-			color = taskToEdit!!.color
-			title = getString(R.string.edit_task)
-		} else {
-			color =
-				Color.argb(255, Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
-			title = getString(R.string.add_task)
+		when {
+			taskToEdit != null -> {
+				taskTitle.setText(taskToEdit!!.title)
+				categoryToggle.visibility = View.GONE
+				color = taskToEdit!!.color
+				title = getString(R.string.edit_task)
+			}
+			parentTaskId != -1 -> {
+				color =
+					Color.argb(255, Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
+				title = "Add subtask"
+			}
+			else -> {
+				color =
+					Color.argb(255, Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
+				title = getString(R.string.add_task)
+			}
 		}
 		pickColorButton.background.setTint(color)
 		pickColorButton.setTextColor(Utils.getForegroundColor(color))

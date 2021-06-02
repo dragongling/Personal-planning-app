@@ -46,12 +46,18 @@ class MainActivity : AppCompatActivity() {
 		val adapter = TaskAdapter(
 			taskViewModel.viewModelScope,
 			taskViewModel.repository,
-			this
-		) { task ->
-			val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
-			intent.putExtra(AddTaskActivity.EXTRA_TASK_TO_EDIT, task)
-			addOrEditTaskLauncher.launch(intent)
-		}
+			this,
+			onTaskEdit = { task ->
+				val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
+				intent.putExtra(AddTaskActivity.EXTRA_TASK_TO_EDIT, task)
+				addOrEditTaskLauncher.launch(intent)
+			},
+			onAddSubtask = { taskId ->
+				val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
+				intent.putExtra(AddTaskActivity.EXTRA_PARENT_TASK_ID, taskId)
+				addOrEditTaskLauncher.launch(intent)
+			}
+		)
 		tasksRecyclerView.adapter = adapter
 
 		taskViewModel.currentTasks.observe(this) { currentTasks ->

@@ -8,6 +8,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +25,8 @@ class TaskAdapter(
 	private val scope: CoroutineScope,
 	private val repository: TaskRepository,
 	private val context: Context,
-	private val onTaskEdit: (task: Task) -> Unit
+	private val onTaskEdit: (task: Task) -> Unit,
+	private val onAddSubtask: (taskId: Int) -> Unit
 ) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TaskComparator()) {
 
 	override fun onCreateViewHolder(
@@ -40,7 +42,8 @@ class TaskAdapter(
 				}
 				notifyDataSetChanged()
 			},
-			onTaskEdit = onTaskEdit
+			onTaskEdit = onTaskEdit,
+			onAddSubtask = onAddSubtask
 		)
 	}
 
@@ -59,35 +62,58 @@ class TaskAdapter(
 	class TaskViewHolder(
 		itemView: View,
 		val onTaskMarkedComplete: (taskId: Int) -> Unit,
-		val onTaskEdit: (task: Task) -> Unit
+		val onTaskEdit: (task: Task) -> Unit,
+		val onAddSubtask: (taskId: Int) -> Unit
 	) : RecyclerView.ViewHolder(itemView) {
 		private val handler = Handler(Looper.getMainLooper())
 		private val markedComplete = false
 
 		fun bind(task: Task) {
-			itemView.taskTitle.text = task.title
-			itemView.taskCard.background.setTint(task.color)
-			itemView.taskCard.setOnClickListener {
-				if (itemView.editTaskButton.visibility == View.GONE)
-					itemView.editTaskButton.visibility = View.VISIBLE
-				else
-					itemView.editTaskButton.visibility = View.GONE
-			}
+			with(itemView) {
+				taskTitle.text = task.title
+				taskCard.background.setTint(task.color)
+				taskCard.setOnClickListener {
+					if (editTaskButton.visibility == View.GONE) {
+						editTaskButton.visibility = View.VISIBLE
+						subtasks.visibility = View.VISIBLE
+						addSubtaskButton.visibility = View.VISIBLE
 
-			val fgColor = Utils.getForegroundColor(task.color)
-			itemView.taskTitle.setTextColor(fgColor)
-			itemView.markCompleteButton.backgroundTintList = ColorStateList.valueOf(fgColor)
-			itemView.editTaskButton.backgroundTintList = ColorStateList.valueOf(fgColor)
-			itemView.markCompleteButton.setOnClickListener {
-				if (!markedComplete) {
-					markCompleted(itemView, task)
-				} else {
-					cancelMarkCompleted(itemView)
+						val params =
+							markCompleteButton.layoutParams as ConstraintLayout.LayoutParams
+						params.bottomToTop = R.id.subtasks
+						params.bottomToBottom = ConstraintLayout.LayoutParams.UNSET
+						markCompleteButton.requestLayout()
+					} else {
+						editTaskButton.visibility = View.GONE
+						subtasks.visibility = View.GONE
+						addSubtaskButton.visibility = View.GONE
+						val params =
+							markCompleteButton.layoutParams as ConstraintLayout.LayoutParams
+						params.bottomToTop = ConstraintLayout.LayoutParams.UNSET
+						params.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+						markCompleteButton.requestLayout()
+					}
 				}
-			}
 
-			itemView.editTaskButton.setOnClickListener {
-				onTaskEdit(task)
+				val fgColor = Utils.getForegroundColor(task.color)
+				taskTitle.setTextColor(fgColor)
+				markCompleteButton.backgroundTintList = ColorStateList.valueOf(fgColor)
+				editTaskButton.backgroundTintList = ColorStateList.valueOf(fgColor)
+				markCompleteButton.setOnClickListener {
+					if (!markedComplete) {
+						markCompleted(itemView, task)
+					} else {
+						cancelMarkCompleted(itemView)
+					}
+				}
+
+				addSubtaskButton.setOnClickListener {
+					onAddSubtask(task.id)
+				}
+
+				editTaskButton.setOnClickListener {
+					onTaskEdit(task)
+				}
 			}
 		}
 
@@ -110,11 +136,12 @@ class TaskAdapter(
 			fun create(
 				parent: ViewGroup,
 				onTaskMarkedComplete: (taskId: Int) -> Unit,
-				onTaskEdit: (task: Task) -> Unit
+				onTaskEdit: (task: Task) -> Unit,
+				onAddSubtask: (taskId: Int) -> Unit
 			): TaskViewHolder {
 				val view: View = LayoutInflater.from(parent.context)
 					.inflate(R.layout.task_item_row, parent, false)
-				return TaskViewHolder(view, onTaskMarkedComplete, onTaskEdit)
+				return TaskViewHolder(view, onTaskMarkedComplete, onTaskEdit, onAddSubtask)
 			}
 		}
 	}
