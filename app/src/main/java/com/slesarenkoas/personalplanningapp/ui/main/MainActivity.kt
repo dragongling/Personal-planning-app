@@ -2,12 +2,17 @@ package com.slesarenkoas.personalplanningapp.ui.main
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
@@ -63,10 +68,29 @@ class MainActivity : AppCompatActivity() {
 		taskViewModel.currentTasks.observe(this) { currentTasks ->
 			currentTasks.let { adapter.submitList(it) }
 		}
+	}
 
-		addTaskButton.setOnClickListener {
-			val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
-			addOrEditTaskLauncher.launch(intent)
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		menuInflater.inflate(R.menu.menu_main, menu)
+		for (i in 0 until menu!!.size()) {
+			val drawable = menu.getItem(i).icon
+			if (drawable != null) {
+				drawable.mutate()
+				drawable.colorFilter = BlendModeColorFilterCompat
+					.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP)
+			}
+		}
+		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		return when (item.itemId) {
+			R.id.addTask -> {
+				val intent = Intent(this@MainActivity, AddTaskActivity::class.java)
+				addOrEditTaskLauncher.launch(intent)
+				true
+			}
+			else -> super.onOptionsItemSelected(item)
 		}
 	}
 }
