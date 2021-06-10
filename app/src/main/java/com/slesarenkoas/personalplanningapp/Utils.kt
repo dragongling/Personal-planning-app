@@ -1,6 +1,7 @@
 package com.slesarenkoas.personalplanningapp
 
 import android.graphics.Color
+import java.text.DateFormat
 import java.util.*
 
 class Utils {
@@ -22,6 +23,29 @@ class Utils {
 				darkForegroundColor
 			else
 				lightForegroundColor
+		}
+
+		fun startOfDay(): Long {
+			val cal = Calendar.getInstance()
+			cal.timeInMillis = currentTime.time
+			cal[Calendar.HOUR_OF_DAY] = 0 //set hours to zero
+			cal[Calendar.MINUTE] = 0 // set minutes to zero
+			cal[Calendar.SECOND] = 0 //set seconds to zero
+			return cal.timeInMillis
+		}
+
+		fun formatDate(date: Date): String {
+			return DateFormat.getDateTimeInstance(
+				DateFormat.DEFAULT,
+				DateFormat.SHORT,
+				Locale.getDefault()
+			).format(date)
+			// The bottom way requires to be Oracle employee to get it work:
+//			return Instant
+//				.ofEpochMilli(date.getTime())
+//				.atZone(ZoneId.systemDefault())
+//				.toLocalDate()
+//				.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.LONG))
 		}
 	}
 }

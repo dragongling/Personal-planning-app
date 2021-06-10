@@ -23,6 +23,7 @@ data class Task(
 
 	val addTime: Date,
 	var markCompletedTime: Date?,
+	var startTime: Date?,
 	val color: Int,
 
 //        val startTime: Timestamp,

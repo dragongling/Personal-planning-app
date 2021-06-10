@@ -15,6 +15,7 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.slesarenkoas.personalplanningapp.NavigationActivity
 import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
 import com.slesarenkoas.personalplanningapp.R
 import com.slesarenkoas.personalplanningapp.ui.addtask.AddTaskActivity
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_main)
 
 		setTitle(R.string.current_tasks)
+
+		toNavDrawerButton.setOnClickListener {
+			val intent = Intent(this@MainActivity, NavigationActivity::class.java)
+			addOrEditTaskLauncher.launch(intent)
+		}
 
 		addOrEditTaskLauncher = registerForActivityResult(
 			ActivityResultContracts.StartActivityForResult()

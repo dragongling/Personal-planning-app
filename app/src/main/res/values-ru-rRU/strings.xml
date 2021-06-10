@@ -23,4 +23,12 @@
 	<string name="save_task">Сохранить</string>
 	<string name="edit_task">Редактировать</string>
 	<string name="add_subtask">Добавить подзадачу</string>
+	<string name="navigation_drawer_open">Открыть navigation drawer</string>
+	<string name="navigation_drawer_close">Закрыть navigation drawer</string>
+	<string name="menu_unfinished_tasks">Невыполненные задачи</string>
+	<string name="menu_today_tasks">Сегодня</string>
+	<string name="set_label">Выбрать</string>
+	<string name="menu_slideshow">Слайдшоу</string>
+	<string name="start_time_label">Время начала</string>
+	<string name="pick_start_time_label">Выберите время начала</string>
 </resources>

@@ -24,7 +24,6 @@
 		android:layout_height="wrap_content"
 		android:backgroundTint="@color/black"
 		android:text="@string/color"
-		app:layout_constraintBottom_toTopOf="@id/categoriesTextView"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@id/taskTitle" />
 
@@ -37,9 +36,30 @@
 		android:textOff="@string/category_checkbox"
 
 		android:textOn="@string/category_checkbox"
-		app:layout_constraintBottom_toTopOf="@+id/categoriesTextView"
 		app:layout_constraintStart_toEndOf="@+id/pickColorButton"
 		app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+	<TextView
+		android:id="@+id/startTimeTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingEnd="8dp"
+		android:text="@string/start_time_label"
+
+		app:layout_constraintBottom_toTopOf="@id/categoriesTextView"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/pickColorButton"
+		tools:ignore="RtlSymmetry" />
+
+	<Button
+		android:id="@+id/pickStartTimeButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/set_label"
+
+		app:layout_constraintBottom_toTopOf="@id/categoriesTextView"
+		app:layout_constraintStart_toEndOf="@id/startTimeTextView"
+		app:layout_constraintTop_toBottomOf="@id/pickColorButton" />
 
 	<ImageButton
 		android:id="@+id/categoryHelpButton"
@@ -72,6 +92,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/categories"
+		android:visibility="gone"
 
 		app:layout_constraintBottom_toTopOf="@+id/categoriesDivider"
 		app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +100,7 @@
 
 	<Button
 		android:id="@+id/addCategoryButton"
+		android:visibility="gone"
 		android:layout_width="wrap_content"
 		android:layout_height="35dp"
 		android:layout_margin="0dp"
@@ -91,6 +113,7 @@
 
 	<View
 		android:id="@+id/categoriesDivider"
+		android:visibility="gone"
 		style="@style/Divider"
 
 		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer"
@@ -99,65 +122,29 @@
 
 	<com.google.android.material.chip.ChipGroup
 		android:id="@+id/categoriesContainer"
+		android:visibility="gone"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_margin="0dp"
 		android:padding="10dp"
 
-		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer2"
+
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/categoriesDivider" />
 
-	<com.google.android.flexbox.FlexboxLayout
-		android:id="@+id/categoriesContainer2"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:visibility="gone"
-		app:flexWrap="wrap"
-
-		app:layout_constraintBottom_toTopOf="@+id/categoriesContainer3"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/categoriesContainer">
-
-		<com.google.android.material.chip.Chip
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="test"
-			app:closeIconEnabled="true" />
-
-		<com.google.android.material.chip.Chip
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="test"
-			app:closeIconEnabled="true" />
-
-		<com.google.android.material.chip.Chip
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="test"
-			app:closeIconEnabled="true" />
-	</com.google.android.flexbox.FlexboxLayout>
-
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/categoriesContainer3"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-
-
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/categoriesContainer2" />
-
 	<TextView
 		android:id="@+id/subtasksTextView"
+		android:visibility="gone"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/subtasks"
 
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/categoriesContainer3" />
+		app:layout_constraintTop_toBottomOf="@id/categoriesContainer" />
 
 	<View
 		android:id="@+id/subtasksDivider"
+		android:visibility="gone"
 		style="@style/Divider"
 
 		app:layout_constraintStart_toStartOf="parent"
@@ -165,6 +152,7 @@
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/subtasks"
+		android:visibility="gone"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 
@@ -173,6 +161,7 @@
 
 	<Button
 		android:id="@+id/addSubtaskButton"
+		android:visibility="gone"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/add_subtask"

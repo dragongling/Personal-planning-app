@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.flask.colorpicker.ColorPickerView
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder
+import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
 import com.google.android.material.chip.Chip
 import com.slesarenkoas.personalplanningapp.PersonalPlanningApplication
 import com.slesarenkoas.personalplanningapp.R
@@ -20,6 +21,7 @@ import com.slesarenkoas.personalplanningapp.model.Task
 import com.slesarenkoas.personalplanningapp.ui.main.TaskViewModel
 import com.slesarenkoas.personalplanningapp.ui.main.TaskViewModelFactory
 import kotlinx.android.synthetic.main.activity_add_task.*
+import java.util.*
 import kotlin.random.Random
 
 
@@ -41,11 +43,13 @@ class AddTaskActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_add_task)
 
 		var color: Int
+		var startTime: Date? = null
 		when {
 			taskToEdit != null -> {
 				taskTitle.setText(taskToEdit!!.title)
 				categoryToggle.visibility = View.GONE
 				color = taskToEdit!!.color
+				startTime = taskToEdit!!.startTime
 				title = getString(R.string.edit_task)
 			}
 			parentTaskId != -1 -> {
@@ -90,9 +94,9 @@ class AddTaskActivity : AppCompatActivity() {
 				val taskTitle = taskTitle.text.toString()
 				val isCategory = categoryToggle.isChecked
 				if (taskToEdit == null)
-					taskViewModel.addTask(taskTitle, color, isCategory, this)
+					taskViewModel.addTask(taskTitle, color, isCategory, startTime, this)
 				else
-					taskViewModel.editTask(taskToEdit!!.id, taskTitle, color, this)
+					taskViewModel.updateTask(taskToEdit!!.id, taskTitle, color, startTime, this)
 				setResult(Activity.RESULT_OK, replyIntent)
 			}
 			finish()
@@ -128,6 +132,34 @@ class AddTaskActivity : AppCompatActivity() {
 		chip.isCloseIconVisible = true
 		chip.text = "Test"
 		categoriesContainer.addView(chip)
+
+		pickStartTimeButton.setOnClickListener {
+			if (startTime == null) {
+				SingleDateAndTimePickerDialog.Builder(this)
+					//.bottomSheet()
+					//.curved()
+					//.stepSizeMinutes(15)
+					//.displayHours(false)
+					//.displayMinutes(false)
+					//.todayText("aujourd'hui")
+					.title(getString(R.string.pick_start_time_label))
+					.mainColor(resources.getColor(R.color.mild_lilac))
+					.listener { date ->
+						startTime = date
+						pickStartTimeButton.text = Utils.formatDate(date)
+//						Toast.makeText(
+//							this,
+//
+//							Utils.formatDate(date),
+////						DateFormat.getLongDateFormat(this).format(date),
+//							Toast.LENGTH_SHORT
+//						).show()
+					}.display()
+			} else {
+				startTime = null
+				pickStartTimeButton.text = getString(R.string.set_label)
+			}
+		}
 
 //		val countries = arrayOf(
 //			"Belgium", "France", "Italy", "Germany", "Spain"
